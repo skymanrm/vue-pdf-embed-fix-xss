@@ -1,7 +1,7 @@
 {
-  "name": "vue-pdf-embed",
-  "version": "1.2.1",
-  "description": "PDF embed component for Vue 2 and Vue 3",
+  "name": "vue-pdf-embed-fix-xss",
+  "version": "0.0.1",
+  "description": "PDF embed component for Vue 2",
   "keywords": [
     "vue",
     "vuejs",
