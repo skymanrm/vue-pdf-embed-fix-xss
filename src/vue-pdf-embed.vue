@@ -215,8 +215,8 @@ export default {
         if (this.source._pdfInfo) {
           this.document = this.source
         } else {
-          const sourceValue = this.source
-          const isEvalSupported = false
+          const sourceValue = this.source;
+          const isEvalSupported = false;
 
           if (typeof sourceValue === 'string' || sourceValue instanceof URL) {
             this.documentLoadingTask = pdf.getDocument({
@@ -249,7 +249,7 @@ export default {
               isEvalSupported,
             })
           }
-
+          
           this.documentLoadingTask.onProgress = (progressParams) => {
             this.$emit('progress', progressParams)
           }
