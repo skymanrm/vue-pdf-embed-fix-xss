@@ -215,41 +215,7 @@ export default {
         if (this.source._pdfInfo) {
           this.document = this.source
         } else {
-          const sourceValue = this.source;
-          const isEvalSupported = false;
-
-          if (typeof sourceValue === 'string' || sourceValue instanceof URL) {
-            this.documentLoadingTask = pdf.getDocument({
-              url: sourceValue,
-              isEvalSupported,
-            })
-          } else if (sourceValue instanceof ArrayBuffer) {
-            this.documentLoadingTask = pdf.getDocument({
-              data: sourceValue,
-              isEvalSupported,
-            })
-          } else if (
-            sourceValue instanceof Int8Array ||
-            sourceValue instanceof Uint8Array ||
-            sourceValue instanceof Uint8ClampedArray ||
-            sourceValue instanceof Int16Array ||
-            sourceValue instanceof Uint16Array ||
-            sourceValue instanceof Int32Array ||
-            sourceValue instanceof Uint32Array ||
-            sourceValue instanceof Float32Array ||
-            sourceValue instanceof Float64Array
-          ) {
-            this.documentLoadingTask = pdf.getDocument({
-              data: sourceValue,
-              isEvalSupported,
-            })
-          } else if (typeof sourceValue === 'object' && sourceValue !== null) {
-            this.documentLoadingTask = pdf.getDocument({
-              ...sourceValue,
-              isEvalSupported,
-            })
-          }
-          
+          this.documentLoadingTask = pdf.getDocument(this.source)
           this.documentLoadingTask.onProgress = (progressParams) => {
             this.$emit('progress', progressParams)
           }
